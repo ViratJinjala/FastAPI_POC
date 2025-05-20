@@ -95,6 +95,6 @@ This project is a FastAPI-based Proof of Concept (POC) for user authentication, 
 
 ## 🌐 Live Server
 
-[Open API Docs](https://fastapi-poc-1-krpl.onrender.com)
+[Open API Docs](https://fastapi-poc-1-krpl.onrender.com/docs)
 
 ---
