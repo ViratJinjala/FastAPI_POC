@@ -1,31 +1,42 @@
 from datetime import datetime
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, EmailStr
 from uuid import UUID
 
 class UserInput(BaseModel):
-    
-    email : str
-    password : str
-    first_name : str
-    last_name : str | None = None
-    is_admin : bool
-    
-class UserInDB(UserInput):
+    email: EmailStr
+    username: str
+    password: str  
+    first_name: str
+    last_name: str | None = None
+    # is_admin: bool = False
+
+class UserInDB(BaseModel):
     id: UUID
+    email: EmailStr
+    username: str
+    first_name: str
+    last_name: str | None = None
+    is_admin: bool
     created_at: datetime
     updated_at: datetime
-    
+
     class Config:
         orm_mode = True
-        
+
+class UserProfile(BaseModel):
+    email: EmailStr
+    username: str
+    first_name: str
+    last_name: str | None = None
+
+    class Config:
+        orm_mode = True
+
 class UserOutput(UserInDB):
-    password : str = Field(exclude=True)
-    
     class Config:
         orm_mode = True
-        form_attributes = True
-    
+        from_attributes = True
+
 class UserLogin(BaseModel):
-    email : str
-    password : str
-    
+    username: str
+    password: str
