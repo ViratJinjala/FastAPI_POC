@@ -22,7 +22,7 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
  
  
-DATABASE_URL = "postgresql://postgres:admin@localhost/fastapi"
+DATABASE_URL = os.getenv("DATABASE_URL")
  
  
 target_metadata = Base.metadata
