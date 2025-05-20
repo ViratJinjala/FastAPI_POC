@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-# from contextlib import asynccontextmanager
 from routers import user_router, todo_router, auth_router
+# from contextlib import asynccontextmanager
 # from utils.init_db import create_table
 
 
